@@ -48,16 +48,26 @@ ng serve
 
 Open your browser and visit:
 👉 http://localhost:4200
-```
+
 📸 Preview
-```To Do App```
+```
+```
+To Do App
+
+```
 ![To-Do App Screenshot](screenshot/todoList.png)
 
-```Filter:Completed```
+```
+Filter:Completed
+
+```
 ![filter](screenshot/filter.png)
 
-```Filter:On hold```
-![filter](screenshot/filter(2).png) 
+```
+Filter:On hold
+
+```
+![filter](screenshot/filter (2).png) 
 
 💡 Future Improvements
 Add due dates & reminders

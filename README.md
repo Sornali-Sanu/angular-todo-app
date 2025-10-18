@@ -58,16 +58,16 @@ To Do App
 ![To-Do App Screenshot](screenshot/todoList.png)
 
 ```
-Filter:Completed
+Filter:Onhold
 
 ```
 ![filter](screenshot/filter.png)
 
 ```
-Filter:On hold
+Filter:Completed
 
 ```
-![filter](screenshot/filter (2).png) 
+![filter](screenshot/filterCompleted.png) 
 
 💡 Future Improvements
 Add due dates & reminders

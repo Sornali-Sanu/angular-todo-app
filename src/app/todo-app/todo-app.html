@@ -1,0 +1,118 @@
+<div class="parent">
+
+    <div class="todo-wrapper d-flex align-items-center justify-content-center min-vh-100">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+
+                    <!-- Card -->
+                    <div class="card shadow-lg border-0 rounded-4 todo-card animate-fadein">
+                        <div class="card-body p-4">
+
+                            <!-- Header -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h3 class="fw-bold text-gradient mb-0">My To-Do List</h3>
+                                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">Today</span>
+                            </div>
+
+                            <!-- Add Task -->
+                            <form id="todoForm" class="mb-4">
+                                <div class="input-group">
+                                    <input type="text" [(ngModel)]="taskName" 
+                                        class="form-control form-control-lg rounded-start-4" name="taskName"
+                                        placeholder="Add new task...">
+                                    <button (click)="onAddTask()"
+                                        class="btn btn-gradient px-4 rounded-end-4">Add</button>
+
+                                         <button (click)="noTextChange()"
+                                        class="btn btn-gradient px-4 rounded-end-4">Search</button>
+
+
+                                </div>
+                            </form>
+
+                            <!-- Filter -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <small class="text-muted">Filter by status:</small>
+                                <select class="form-select w-auto" (change)="OnStatusFilter($event)">
+                                    <option selected>All</option>
+                                    <option>Completed</option>
+                                    <option>On Hold</option>
+                                     <option>New</option>
+                                </select>
+                              
+                               
+                            </div>
+
+                            
+                         <div class="table-responsive fade-in">
+  <table class="table table-bordered align-middle text-center shadow-sm">
+    <thead class="table-info">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Task</th>
+        <th scope="col">Task Status</th>
+        <th scope="col">Change Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @if(isFilterPresent()) {
+        @for (item of filteredTaskList(); track $index) {
+          <tr>
+            <td>{{$index + 1}}</td>
+            <td class="text-start">
+              <div class="d-flex align-items-center">
+                   
+          
+                <span class="task-text fw-medium">{{item.taskName}}</span>
+              </div>
+            </td>
+
+            <td>
+              <span class="badge px-3 py-2 rounded-pill"
+                [ngClass]="{
+                  'bg-success-subtle text-success': item.taskStatus.toLowerCase() === 'completed',
+                  'bg-warning-subtle text-warning': item.taskStatus.toLowerCase() === 'on hold',
+                  'bg-primary-subtle text-primary': item.taskStatus.toLowerCase() === 'new'
+                }"
+              >
+                {{item.taskStatus}}
+              </span>
+            </td>
+
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-sm btn-outline-success"
+                        (click)="changeStatus('Completed', item)">
+                  Completed
+                </button>
+                <button class="btn btn-sm btn-outline-warning"
+                        (click)="changeStatus('On Hold', item)">
+                  On Hold
+                </button>
+               
+              </div>
+            </td>
+          </tr>
+        }
+      } @else {
+        <tr>
+          <td colspan="4" class="text-center text-muted py-4">
+            No result found with search filter
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+                        </div>
+                    </div>
+                    <!-- End Card -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

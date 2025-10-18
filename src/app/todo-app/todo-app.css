@@ -1,0 +1,96 @@
+/* --- General Theme --- */
+.parent {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #6e8efb, #a777e3);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.todo-card {
+    background: #fff;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+.todo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Gradient Button --- */
+.btn-gradient {
+    background: linear-gradient(45deg, #6e8efb, #a777e3);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* --- Task Animation --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+/* --- Input Focus --- */
+.form-control:focus {
+    border-color: #a777e3;
+    box-shadow: 0 0 0 0.2rem rgba(167, 119, 227, 0.25);
+}
+
+/* --- Checkbox & Task Text --- */
+.task-text {
+    font-size: 1.05rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+input[type="checkbox"]:checked+.task-text {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* --- Card Fade Animation --- */
+@keyframes fadeCard {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadein {
+    animation: fadeCard 0.8s ease;
+}
